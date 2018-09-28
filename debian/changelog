@@ -1,0 +1,17 @@
+blur-effect (1.1.2+r17) UNRELEASED; urgency=medium
+
+  * Auto Build
+
+ --  <jenkins@45cd608b91cd>  Tue, 06 Sep 2016 06:09:33 +0000
+
+blur-effect (1.0.1) unstable; urgency=medium
+
+  * rebuild
+
+ -- Deepin Packages Builder <packages@deepin.com>  Thu, 11 Aug 2016 17:22:45 +0800
+
+blur-effect (1.0.0) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Deepin Packages Builder <packages@deepin.com>  Wed, 10 Aug 2016 09:16:14 +0800

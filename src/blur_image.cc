@@ -386,6 +386,9 @@ static GLuint build_program(int stage)
         err_quit("error: %s\n", log);
     }
 
+    glDeleteShader(vs);
+    glDeleteShader(ts);
+
     GLint pos_attrib = glGetAttribLocation(program, "position");
     glEnableVertexAttribArray(pos_attrib);
     glVertexAttribPointer(pos_attrib, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), 0);
@@ -874,9 +877,31 @@ static void setup_context()
 
 static void cleanup()
 {
+    glDeleteBuffers(1, &ctx.vbo);
+    glDeleteBuffers(1, &ctx.ubo);
+    glDeleteTextures(1, &ctx.tex);
+
+    glDeleteFramebuffers(2, ctx.fb);
+    glDeleteTextures(2, ctx.fbTex);
+
+    glDeleteFramebuffers(1, &ctx.brtFb);
+    glDeleteTextures(1, &ctx.brtTex);
+
+    glDeleteFramebuffers(1, &ctx.lgtFb);
+    glDeleteTextures(1, &ctx.lgtTex);
+
+    glDeleteProgram(ctx.program);
+    glDeleteProgram(ctx.programH);
+    glDeleteProgram(ctx.programDirect);
+    glDeleteProgram(ctx.programSetBrt);
+    glDeleteProgram(ctx.programSetLgt);
+    glDeleteProgram(ctx.programSaveBrt);
+
     eglDestroySurface(ctx.display, ctx.surface);
+    gbm_surface_destroy (ctx.gbm_surface);
     eglDestroyContext(ctx.display, ctx.gl_context);
     eglTerminate(ctx.display);
+    gbm_device_destroy (ctx.gbm);
 }
 
 static void usage()
@@ -948,6 +973,13 @@ int main(int argc, char *argv[])
     ctx.tex_height = ctx.height * 0.25f;
 
     setup_context();
+    int maxTexSize;
+    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTexSize);
+    cout << "maxTexSize:" << maxTexSize << endl;
+    if (ctx.width > maxTexSize || ctx.height > maxTexSize) {
+        err_quit("the texture exceeds the maximum value of the graphics card%s\n", ctx.img_path);
+    }
+
     gl_init();
     render();
 

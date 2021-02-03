@@ -1,0 +1,13 @@
+Source: blur-effect
+Section: devel
+Priority: optional
+Maintainer: Deepin Packages Builder <packages@deepin.com>
+Build-Depends: debhelper (>=9),cmake,libglm-dev,libglfw3-dev,libglew-dev,libgbm-dev,libegl1-mesa-dev,libgles2-mesa-dev,libgdk-pixbuf2.0-dev
+Standards-Version: 3.9.8
+Homepage: http://www.deepin.org
+
+Package: blur-effect
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>

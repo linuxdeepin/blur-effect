@@ -1,0 +1,81 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" (C) Copyright 2021 Arun Kumar Pariyar <openarungeek@gmail.com>,
+.\"
+.TH "BLUR_IMAGE "1" "2021-02-02" "blur_image manpage"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+
+.SH NAME
+blur_image \- Off-screen image blurring utility using OpenGL ES 3.0.
+
+.SH SYNOPSIS
+.B blur_image
+.RI <input_file>
+.RI [ FLAGS ]
+.RI -o
+.RI <output_file>
+
+.SH DESCRIPTION
+This manual page documents briefly the
+.B blur_image
+command as provided by
+.B blur-effect
+package.
+.PP
+The binary program \fBblur_image\fP generates images with Blur Effect.
+.PP
+
+.SH OPTIONS
+.TP
+.B \-r <radius>
+radius now should be odd number ranging [3-49]
+.TP
+.B \-S <sigma>
+sample distance (default 1.0)
+.TP
+.B \-b
+adjust brightness after blurring
+.TP
+.B \-d <drmdev>
+use drmdev (/dev/dri/card0 e.g) to render
+.TP
+.B \-l <percent>
+multiple current lightness by percent [0.0-1.0]
+.TP
+.B \-s <percent>
+multiple current saturation by percent [0.0-1.0]
+.TP
+.B \-p <rendering passes>
+iterate passes of rendering, ranging [1-INF]
+
+.SH EXAMPLE
+blur_image -d /dev/dri/renderD128 -p 6 -r 7 "/usr/share/wallpapers/deepin/Garden In The Autumn.jpg" -o out.jpg
+
+.SH SEE ALSO
+.PP
+This program is further documented in the
+.IR README.md
+as provided with this debian package under
+.IR /usr/share/doc/blur-effect/
+directory.
+
+.SH AUTHOR
+.PP
+.B blur_image
+is written by Sian Cao.
+.PP
+This manual page was written by
+.MT openarungeek@\:gmail.com
+Arun Kumar Pariyar
+.ME
+for the Debian Project (but may be used by others).

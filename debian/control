@@ -3,15 +3,15 @@ Section: graphics
 Priority: optional
 Maintainer: Deepin Packages Builder <packages@deepin.com>
 Build-Depends:
- cmake,
  debhelper-compat (= 11),
- libdrm-dev,
- libegl1-mesa-dev,
- libgbm-dev,
- libgdk-pixbuf-2.0-dev,
- libgles-dev,
- libglew-dev,
+ cmake,
  libglm-dev,
+ libglfw3-dev,
+ libglew-dev,
+ libgbm-dev,
+ libegl1-mesa-dev,
+ libgles2-mesa-dev,
+ libgdk-pixbuf2.0-dev,
 Standards-Version: 4.5.1
 Rules-Requires-Root: no
 Homepage: https://github.com/linuxdeepin/blur-effect

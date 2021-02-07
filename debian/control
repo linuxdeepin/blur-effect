@@ -5,11 +5,11 @@ Maintainer: Deepin Packages Builder <packages@deepin.com>
 Build-Depends:
  cmake,
  debhelper-compat (= 11),
- libdrm-dev,
  libegl1-mesa-dev,
+ libgles2-mesa-dev,
  libgbm-dev,
  libgdk-pixbuf-2.0-dev,
- libgles-dev,
+ libglfw3-dev,
  libglew-dev,
  libglm-dev,
 Standards-Version: 4.5.1

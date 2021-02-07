@@ -29,3 +29,7 @@ or you can use render node to do blurring without privilege like
 in case if you want to build demo
 use `cmake -DBUILD_DEMO=on ..` instead and after build finished, 
 use `blur-exps` to test blurring with windowing system. 
+
+## License
+
+This project is licensed under [GPLv3](LICENSE) or any later version.

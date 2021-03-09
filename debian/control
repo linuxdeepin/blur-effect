@@ -1,13 +1,29 @@
 Source: blur-effect
-Section: devel
+Section: graphics
 Priority: optional
-Maintainer: Deepin Packages Builder <packages@deepin.com>
-Build-Depends: debhelper (>=9),cmake,libglm-dev,libglfw3-dev,libglew-dev,libgbm-dev,libegl1-mesa-dev,libgles2-mesa-dev,libgdk-pixbuf2.0-dev
-Standards-Version: 3.9.8
-Homepage: http://www.deepin.org
+Maintainer: Deepin Packages Builder <packages@deepin.org>
+Build-Depends:
+ cmake,
+ debhelper-compat (= 12),
+ libdrm-dev,
+ libegl1-mesa-dev,
+ libgbm-dev,
+ libgdk-pixbuf-2.0-dev,
+ libgles-dev,
+ libglew-dev,
+ libglm-dev,
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: https://github.com/sonald/blur-effect
+Vcs-Browser: https://salsa.debian.org/pkg-deepin-team/blur-effect
+Vcs-Git: https://salsa.debian.org/pkg-deepin-team/blur-effect.git
 
 Package: blur-effect
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: Offscreen Image Blurring utility
+ Blur-effect is based on efficient Gaussian blur with linear sampling.
+ .
+ This package is part of DDE (Deepin Desktop Environment).
